@@ -3,10 +3,12 @@ const fetch = require('node-fetch');
 const bcrypt = require('bcrypt');
 const { checkAuthentication } = require('../configs/passport-local-strategy');
 
+//this module render the profile
 module.exports.profile = function(req,res){
     return res.render('profile');
 }
 
+//this module help us to create session and authenticate through passport that user is valid or not 
 module.exports.createSession = function(req,res){
     if(req.isAuthenticated()){
         console.log('successfull');
@@ -19,16 +21,18 @@ module.exports.createSession = function(req,res){
 }
 
 
+//this help us to destroy all session from cookies
 module.exports.destroySession = function(req, res){
     req.flash('success','Logout Successfully');
     req.logout();
     return res.redirect('/');
 }
 
+//this help us to change the password of user
 module.exports.updatePassword = function(req,res){
     if(req.body.password!=req.body.confirm_password){
         console.log("password and confirm password are not same");
-        req.flash('error','Password and Confirm Password are different');
+        req.flash('error','Password and Confirm Password not Match');
         return res.redirect('back');
     }
 
@@ -44,7 +48,7 @@ module.exports.updatePassword = function(req,res){
 
 }
 
-
+//this module help us to create a user after checking password is valid or not
 module.exports.create = async function(req,res){
     const captchaVerified = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=6Lcx5NgZAAAAAGCyhG1d1QATzjEGpSz0NGEu7-gn&response=${req.body['g-recaptcha-response']}`,{
         method : "POST"

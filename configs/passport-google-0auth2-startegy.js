@@ -1,3 +1,5 @@
+
+// configuration to signup or login with google
 const passport = require('passport');
 const googleStategy = require('passport-google-oauth').OAuth2Strategy;
 const crypto = require('crypto');

@@ -1,5 +1,5 @@
-const User = require('../models/users');
 
+//this module help usto render sign page
 module.exports.signIn = function(req,res){
     if(req.isAuthenticated()){
         return res.redirect('/users/profile');
@@ -9,6 +9,7 @@ module.exports.signIn = function(req,res){
     });
 }
 
+//this module help us to render sign up pagw
 module.exports.signUp = function(req,res){
     if(req.isAuthenticated()){
         return res.redirect('/users/profile');

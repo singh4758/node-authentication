@@ -1,3 +1,5 @@
+
+//configuraation to store password or authenticate user
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');

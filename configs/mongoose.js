@@ -1,3 +1,5 @@
+
+// Configure to connect with mongoose
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/Authentication');
 const db = mongoose.connection;
