@@ -1,19 +1,24 @@
-<!DOCTYPE html>
-<html>
-    <head>
-
-    </head>
-    <body>
-        <div class="SignIn">
-            <form action="/users/create_session"  method="POST">
-                <input type="email" name="email" placeholder="Enter Email Id">
-                <input type="password" name="password" placeholder="Enter your Password">
-                <input type="submit" value="Sign In">
-            </form>
-            <br/>
-            <p>
-                <a href="/users/auth/google">Google SignIn</a>
-            </p>
-        </div>
-    </body>
-</html>
+<script src="https://www.google.com/recaptcha/api.js?render=6LeJ49gZAAAAAJSTLWGiGGiz598rT1F-UGO2u5og"></script>
+<link rel="stylesheet" href="/css/signin.css">
+<div class="container">
+    <h1>Sign In</h1>
+    <div class="SignIn">
+        <form action="/users/create_session"  method="POST">
+            <span>Enter Email</span>
+            <span>Enter Password</span>
+            <br>
+            <input type="email" name="email" placeholder="Enter Email Id">
+            <input type="password" name="password" placeholder="Enter your Password">
+            <br>
+            <br>
+            <div class="g-recaptcha" data-sitekey="6Lcx5NgZAAAAAIYfnZhhLu3m1X2BymzNEA8hlR-q" style="display: flex; justify-content: center;"></div>
+            <br>
+            <input type="submit" value="Sign In">
+            <a id="signup" href="/sign_up">Sign Up</a>
+        </form>
+        <a id="google" href="/users/auth/google">Google SignIn/Sign Up</a>
+        <script>
+            
+        </script>
+    </div>
+</div>

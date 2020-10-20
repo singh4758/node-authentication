@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-
-    </head>
-    <body>
-        <a href="/users/logout">Log Out</a>
-        <h1>Profile</h1>
-        <h3><%= user.name %></h3>
-        <h4><%= user.email %></h4>
-    </body>
-</html>
+<link rel="stylesheet" href="/css/profile.css">
+<div class="container">
+    <a style="position: absolute; right: 10px; top: 5px;" href="/users/logout">Log Out</a>
+    <h1>Profile</h1>
+    <h3 class="inform"><span class="text">Name</span> :- <%= user.name %></h3>
+    <h4 class="inform"><span class="text">Email</span> :- <%= user.email %></h4>
+    <form action="/users/updatePassword/<%= user.email %>" method="POST">
+        <span class="textpass">Password</span>
+        <span class="textpass">Confirm Password</span>
+        <br>
+        <br>
+        <input name="password" type="password" required>
+        <input name="confirm_password" type="password" required>
+        <br>
+        <br>
+        <input type="submit" value="Change">
+    </form>
+</div>

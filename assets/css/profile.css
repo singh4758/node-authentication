@@ -1,0 +1,37 @@
+body{
+    text-align: center;
+    background-color: black;
+    margin-top: 100px;
+}
+
+h1{
+    color: red;
+}
+
+.text{
+    color: red;
+}
+
+.inform{
+    color: blue;
+}
+
+.container{
+    width: 60vw;
+    margin: auto;
+    border: 1px solid white;
+    min-width: 500px;
+    position: relative;
+}
+
+
+a{
+    text-decoration: none;
+    color: red;
+    font-weight: bolder;
+}
+
+.textpass{
+    color: blue;
+    margin: 0px 50px;
+}

@@ -1,21 +1,39 @@
 const passport = require('passport');
-const user = require('../models/users');
 const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcrypt');
+const fetch = require('node-fetch');
 
 const User = require('../models/users');
 
 passport.use(new LocalStrategy({
-        usernameField : 'email'
+        usernameField : 'email',
+        passReqToCallback : true
     },
-    function(email,password,done){
+    async function(req,email,password,done){
+
+        const captchaVerified = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=6Lcx5NgZAAAAAGCyhG1d1QATzjEGpSz0NGEu7-gn&response=${req.body['g-recaptcha-response']}`,{
+                method : "POST"
+            })
+            .then((res)=>res.json())
+
+
+            if(!captchaVerified.success){
+                console.log('Captcha is missing');
+                req.flash('error','Please fill the captcha');
+                return done();
+            }
+        
+
+
         User.findOne({email : email},function(err,user){
             if(err){
                 console.log('Error in Finding User');
                 return done(err);
             }
-
-            if(!user || user.password!=password){
-                console.log('Invalis Username/Password');
+            
+            if(!user || !bcrypt.compareSync(password,user.password) ){
+                console.log('Invalids Username/Password');
+                req.flash('error','Invalid UserId or Password');
                 return done(err);
             }
 

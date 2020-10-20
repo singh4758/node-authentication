@@ -1,20 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
-        <div class="SignUp">
-            <form action="/users/create" method="POST">
-                <input type="text" name="name" placeholder="Enter Name" required>
-                <input type="email" name="email" placeholder="Enter Email Id" required autocomplete="off">
-                <input type="password" name="password" placeholder="Enter Password" required>
-                <input type="password" name="confirm_password" placeholder="Enter Password" required>
-                <input type="submit" value="Sign Up">
-            </form>
-        </div>
-        <br/>
-        <p>
-            <a href="/users/auth/google">Google SignIn</a>
-        </p>
-    </body>
-</html>
+<script src="https://www.google.com/recaptcha/api.js?render=6LeJ49gZAAAAAJSTLWGiGGiz598rT1F-UGO2u5og"></script>
+<link rel="stylesheet" href="/css/signup.css">
+<div class="container">    
+    <h1>Sign Up</h1>
+    <div class="SignUp">
+        <form id="form" action="/users/create" method="POST">
+            <span>Enter Name</span>
+            <span>Enter Email</span>
+            <input type="text" name="name" placeholder="Enter Name" required>
+            <input type="email" name="email" placeholder="Enter Email Id" required autocomplete="off">
+            <br>
+            <span>Password</span>
+            <span>Confirm Password</span>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <input type="password" name="confirm_password" placeholder="Enter Password" required>
+            <br>
+            <br>
+            <div class="g-recaptcha" data-sitekey="6Lcx5NgZAAAAAIYfnZhhLu3m1X2BymzNEA8hlR-q" style="display: flex; justify-content: center;"></div>
+            <br>
+            <input type="submit" value="Sign Up">
+            <a id="signin" href="/">Sign In</a>
+        </form>
+    </div>
+    <br/>
+    <a id="google" href="/users/auth/google">Google SignIn/Sign Up</a>
+</div>
