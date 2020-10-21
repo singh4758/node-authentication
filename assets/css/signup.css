@@ -43,3 +43,7 @@ a{
     border: 1px solid red;
     background-color: blue;
 }
+
+input[type=submit]:hover{
+    cursor: pointer;
+}
