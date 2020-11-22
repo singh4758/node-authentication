@@ -6,9 +6,9 @@ const crypto = require('crypto');
 const user = require('../models/users');
 const User = require('../models/users');
 passport.use(new googleStategy({
-    clientID : '1009636726970-t52e3en46fhpktukhv9iilbkraldrcdk.apps.googleusercontent.com',
-    clientSecret : 'mp0cFUidYHHH1G6ZFFZ34SX7',
-    callbackURL : 'http://localhost:8000/users/auth/google/callback'
+//     clientID : 'PLease Fill your Own google client Id and uncomment it ',
+//     clientSecret : 'PLease Fill your Own google client Secret and uncomment it',
+//     callbackURL : 'PLease Fill your Own google callbackURL and uncomment it'
     },
     function(accessToken,refreshToken,profile,done){
         User.findOne({email : profile.emails[0].value}).exec(function(err,user){
