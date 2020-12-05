@@ -13,7 +13,7 @@ passport.use(new LocalStrategy({
     },
     async function(req,email,password,done){
 
-        const captchaVerified = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=6Lcx5NgZAAAAAGCyhG1d1QATzjEGpSz0NGEu7-gn&response=${req.body['g-recaptcha-response']}`,{
+        const captchaVerified = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret='Please fill your secret key' -gn&response=${req.body['g-recaptcha-response']}`,{
                 method : "POST"
             })
             .then((res)=>res.json())
